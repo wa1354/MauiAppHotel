@@ -3,26 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.Sobre"
              Title="Sobre o Aplicativo"
-             BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+             BackgroundColor="White">
 
     <VerticalStackLayout Padding="30" Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
         
-        <Image Source="dotnet_bot.png"
-               HeightRequest="120"
-               HorizontalOptions="Center" />
-
         <Label Text="MauiAppHotel"
                FontSize="24"
                FontAttributes="Bold"
                HorizontalOptions="Center" />
 
-        <Label Text="Sistema de gerenciamento e contratação de hospedagem desenvolvido como atividade prática acadêmica."
+        <Label Text="Sistema de hospedagem desenvolvido como atividade prática."
                FontSize="14"
                HorizontalTextAlignment="Center"
                TextColor="Gray" />
 
         <BoxView HeightRequest="1" Color="LightGray" HorizontalOptions="Fill" />
 
+        <!-- Seus Dados de Identificação -->
         <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
             <Label Text="Desenvolvedor:" FontSize="12" TextColor="Gray" HorizontalOptions="Center"/>
             <Label Text="Wagner Jesus da Silva" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center"/>
@@ -33,11 +30,10 @@
             <Label Text="2026" FontSize="16" HorizontalOptions="Center"/>
         </VerticalStackLayout>
 
-        <Button Text="Fechar" 
+        <Button Text="Voltar" 
                 Clicked="BtnVoltar_Clicked"
                 Margin="0,20,0,0"
-                WidthRequest="120"
-                BackgroundColor="{StaticResource Primary}"/>
+                WidthRequest="120"/>
 
     </VerticalStackLayout>
 </ContentPage>

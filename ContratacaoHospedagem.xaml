@@ -1,25 +1,86 @@
-<?xml version = "1.0" encoding = "UTF-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MauiAppHotel"
-             x:Class="MauiAppHotel.App">
-    
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+             x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
+             Title="Reserva de Hospedagem"
+             BackgroundColor="#F5F5F7"> <!-- Cor de fundo clara e moderna -->
 
-            <Style TargetType="Label">
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-            </Style>
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="18">
             
-        </ResourceDictionary>
-    </Application.Resources>
-    
-</Application>
-<Button Text="Sobre o Desenvolvedor" 
-        Clicked="BtnSobre_Clicked" 
-        Margin="10" />
+            <!-- Cabeçalho Customizado -->
+            <Frame BackgroundColor="#1A237E" CornerRadius="10" Padding="15" HasShadow="True">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Grand Pym Hotel" 
+                           TextColor="White" 
+                           FontSize="24" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center"/>
+                    <Label Text="Selecione os detalhes da sua estadia" 
+                           TextColor="#E0E0E0" 
+                           FontSize="13" 
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Campo: Escolha do Quarto -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Tipo de Acomodação:" FontAttributes="Bold" TextColor="#333333"/>
+                <Picker x:Name="pck_quarto" Title="Selecione o quarto..." BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Suíte Luxo (R$ 350,00/dia)</x:String>
+                            <x:String>Suíte Master (R$ 250,00/dia)</x:String>
+                            <x:String>Quarto Standard (R$ 150,00/dia)</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </VerticalStackLayout>
+
+            <!-- Grid de Datas (Lado a Lado) -->
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="Check-in:" FontAttributes="Bold" TextColor="#333333"/>
+                    <DatePicker x:Name="dtp_checkin" Format="dd/MM/yyyy" BackgroundColor="White"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Grid.Column="1" Spacing="5">
+                    <Label Text="Check-out:" FontAttributes="Bold" TextColor="#333333"/>
+                    <DatePicker x:Name="dtp_checkout" Format="dd/MM/yyyy" BackgroundColor="White"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Campo: Quantidade de Hóspedes -->
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15" VerticalOptions="Center">
+                <VerticalStackLayout Grid.Column="0" Spacing="5">
+                    <Label Text="Adultos:" FontAttributes="Bold" TextColor="#333333"/>
+                    <Stepper x:Name="stp_adultos" Minimum="1" Maximum="5" Value="1"/>
+                </VerticalStackLayout>
+                <Label Grid.Column="1" x:Name="lbl_adultos" Text="1 Adulto(s)" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+            </Grid>
+
+            <!-- Botão de Ação de Cálculo -->
+            <Button Text="Calcular Total da Reserva" 
+                    Clicked="BtnCalcular_Clicked"
+                    BackgroundColor="#D4AF37" <!-- Cor Dourada Premium -->
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="8"
+                    Margin="0,10,0,0"/>
+
+            <BoxView HeightRequest="1" Color="#CCCCCC" Margin="0,10"/>
+
+            <!-- Seção de Navegação exigida pela Agenda (Inserção de Telas) -->
+            <Button Text="Sobre o Desenvolvedor" 
+                    Clicked="BtnSobre_Clicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#1A237E"
+                    BorderColor="#1A237E"
+                    BorderWidth="1"
+                    HeightRequest="45"
+                    CornerRadius="8"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

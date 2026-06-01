@@ -1,15 +1,19 @@
-namespace MauiAppHotel.Views;
+using System;
+using Microsoft.Maui.Controls;
 
-public partial class Sobre : ContentPage
+namespace MauiAppHotel.Views
 {
-    public Sobre()
+    public partial class Sobre : ContentPage
     {
-        InitializeComponent();
-    }
+        public Sobre()
+        {
+            InitializeComponent();
+        }
 
-    private async void BtnVoltar_Clicked(object sender, EventArgs e)
-    {
-        // Remove a tela atual da pilha de navegação, voltando para a anterior
-        await Navigation.PopAsync();
+        private async void BtnVoltar_Clicked(object sender, EventArgs e)
+        {
+            // Comando que remove esta tela e volta para a tela anterior
+            await Navigation.PopAsync();
+        }
     }
 }
