@@ -20,3 +20,8 @@ namespace MauiAppHotel
         }
     }
 }
+private async void BtnSobre_Clicked(object sender, EventArgs e)
+{
+    // Empilha a nova tela na NavigationPage configurada no seu App.xaml.cs
+    await Navigation.PushAsync(new Views.Sobre());
+}
