@@ -20,3 +20,6 @@
     </Application.Resources>
     
 </Application>
+<Button Text="Sobre o Desenvolvedor" 
+        Clicked="BtnSobre_Clicked" 
+        Margin="10" />
